@@ -1,26 +1,34 @@
-import React, {Component} from 'react';
+// @flow
+
+import * as React from 'react';
 import './StatefulBox.css';
 
-const TimeOfDay = {
+type TimeOfDay = {
+    description: string,
+    color: string
+};
 
-    MORNING: { TimeOfDay: 'morning', Color: 'pink' },
-    NOON: { TimeOfDay: 'noon', Color: 'orange' },
-    NIGHT: { TimeOfDay: 'morning', Color: 'dkblue' }
+type Props = {
 
 };
+
+type State = {
+    timeOfDay: TimeOfDay
+};
+
+const MORNING : TimeOfDay = { description: 'Morning', color: 'pink'};
+const NOON : TimeOfDay = { description: 'Noon', color: 'orange'};
+const NIGHT : TimeOfDay = { description: 'Night', color: 'night'};
 
 /***
  * This component changes its state
  * accordingly to the time of day
  */
-class StatefulBox extends Component {
+class StatefulBox extends React.Component<Props, State> {
 
-    constructor(props) {
-
-        super(props);
-        this.state = { timeOfDay : TimeOfDay.MORNING };
-
-    }
+    state = {
+        timeOfDay: MORNING
+    };
 
     updateState() {
 
@@ -29,15 +37,15 @@ class StatefulBox extends Component {
 
         if (currentHour > 5 && currentHour <= 12)
         {
-            timeOfDay = TimeOfDay.MORNING
+            timeOfDay = MORNING
         }
         else if (currentHour > 12 && currentHour <= 21)
         {
-            timeOfDay = TimeOfDay.NOON
+            timeOfDay = NOON
         }
         else
         {
-            timeOfDay = TimeOfDay.NIGHT
+            timeOfDay = NIGHT
         }
 
         this.setState( {
@@ -59,12 +67,12 @@ class StatefulBox extends Component {
 
     render() {
 
-        let style = 'statefulbox '+ this.state.timeOfDay.Color;
+        let style = 'statefulbox '+ this.state.timeOfDay.color;
 
         return (
 
             <div className={ style } >
-                It's { this.state.timeOfDay.TimeOfDay }
+                It's { this.state.timeOfDay.description }
             </div>
 
         );

@@ -9,6 +9,8 @@ class App extends Component {
 
     render() {
 
+        document.title = "SmartReact";
+
         return (
 
             <div className="App">

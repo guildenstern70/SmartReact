@@ -10,16 +10,18 @@ const FixedMenu = () => (
     <div>
         <Menu fixed='top' inverted>
             <Container>
-                <Menu.Item as='a' header>
+
+                <Menu.Item as={Link} to='/home' header>
                     <AnimatedLogo />
                     SmartReact
                 </Menu.Item>
-                <Menu.Item as='a'><Link to="/home">Home</Link></Menu.Item>
-                <Menu.Item as='a'><Link to="/anotherpage">Other Page</Link></Menu.Item>
 
-                <Dropdown item simple text='Dropdown'>
+                <Menu.Item as={Link} to='/home'>Home</Menu.Item>
+                <Menu.Item as={Link} to='/anotherpage'>Other Page</Menu.Item>
+
+                <Dropdown item simple text='Your accout'>
                     <Dropdown.Menu>
-                        <Dropdown.Item>All Items</Dropdown.Item>
+                        <Dropdown.Item as={Link} to='/'>Logout</Dropdown.Item>
                         <Dropdown.Item>List Item</Dropdown.Item>
                         <Dropdown.Divider/>
                         <Dropdown.Header>Header Item</Dropdown.Header>
@@ -34,6 +36,7 @@ const FixedMenu = () => (
                         <Dropdown.Item>List Item</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
+
             </Container>
         </Menu>
     </div>

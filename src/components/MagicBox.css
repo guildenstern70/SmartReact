@@ -1,11 +1,21 @@
 .magicbox {
-    width: 100px;
+    width: 200px;
     height: 100px;
     border: 3px solid darkblue;
     padding: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.displayed {
+    display: block;
+}
+
+.notdisplayed {
+    display: none;
 }
 
 .aqua {

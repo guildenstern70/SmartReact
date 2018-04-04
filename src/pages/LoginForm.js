@@ -52,12 +52,11 @@ class LoginForm extends Component
                                     placeholder='Password'
                                     type='password'
                                 />
-
                                 <Button color='blue' fluid size='large' onClick={ this.performLogin }>Login</Button>
                             </Segment>
                         </Form>
                         <Message>
-                            New to us? <a href='#'>Sign Up</a>
+                            New to us? <a href='/home'>Sign Up</a>
                         </Message>
                     </Grid.Column>
                 </Grid>

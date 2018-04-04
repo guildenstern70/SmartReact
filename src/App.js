@@ -1,26 +1,29 @@
 import React, {Component} from 'react';
-import MagicBox from './components/MagicBox';
-import Header from './components/Header';
 
 import './App.css';
-import StatefulBox from "./components/StatefulBox";
 
-class App extends Component {
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import LoginForm from "./pages/LoginForm";
+import AnotherPage from "./pages/AnotherPage";
+import Home from "./pages/Home";
 
-    render() {
+class App extends Component
+{
+
+    render()
+    {
 
         document.title = "SmartReact";
 
         return (
 
-            <div className="App">
-
-                <Header title="SmartReact" />
-                <MagicBox text="Ciao ciao"/>
-                <StatefulBox />
-
-            </div>
-
+            <Router>
+                    <Switch>
+                        <Route path="/" exact component={LoginForm} />
+                        <Route path="/home" component={Home} />
+                        <Route path="/anotherpage" component={AnotherPage}/>
+                    </Switch>
+            </Router>
 
         );
     }

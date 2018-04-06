@@ -5,6 +5,12 @@ import FixedMenu from "../components/FixedMenu";
 
 class MenuLayout extends Component
 {
+    constructor(props)
+    {
+        super(props);
+        console.log("Display menu layout: " + this.props.display);
+    }
+
     render()
     {
         document.title = "SmartReact";
@@ -15,6 +21,7 @@ class MenuLayout extends Component
                         <FixedMenu/>
                     </div>
                     <div className="content">
+                        { this.props.children }
                     </div>
                 </div>
 

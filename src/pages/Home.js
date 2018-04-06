@@ -1,8 +1,8 @@
 import React from 'react'
 
-import FixedMenu from "../components/FixedMenu";
 import { Header, Button, Grid } from 'semantic-ui-react'
 import MagicBox from "../components/MagicBox";
+import MenuLayout from "../components/MenuLayout";
 
 class Home extends React.Component
 {
@@ -30,21 +30,20 @@ class Home extends React.Component
     render()
     {
         return (
-            <div>
 
-                <div className="header">
-                    <FixedMenu/>
-                </div>
+            <MenuLayout>
 
-                <div className="content" style={{marginTop: '100px'}}>
-                    <Header as='h2' color='blue' textAlign='center'>Home Page</Header>
-                    <Grid centered style={{marginTop: '100px'}}>
-                        <Button onClick={this.handleClick} primary>Magic Box</Button>
-                        <Button secondary>Stateful Box</Button>
-                    </Grid>
-                    <MagicBox display={this.state.showMagicBox} text="Magic Box"/>
-                </div>
-            </div>
+                <Header as='h2' color='blue' textAlign='center'>Home Page</Header>
+
+                <Grid centered style={{marginTop: '100px'}}>
+                    <Button onClick={this.handleClick} primary>Magic Box</Button>
+                    <Button secondary>Stateful Box</Button>
+                </Grid>
+
+                <MagicBox display={this.state.showMagicBox} text="Magic Box"/>
+
+            </MenuLayout>
+
         )
     }
 }

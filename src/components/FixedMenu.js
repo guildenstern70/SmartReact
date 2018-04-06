@@ -12,7 +12,7 @@ const FixedMenu = () => (
             <Container>
 
                 <Menu.Item as={Link} to='/home' header>
-                    <AnimatedLogo />
+                    <AnimatedLogo size='mini' />
                     SmartReact
                 </Menu.Item>
 

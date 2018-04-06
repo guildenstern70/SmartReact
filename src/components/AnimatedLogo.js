@@ -1,18 +1,42 @@
-import React from 'react'
+import React, {Component} from 'react'
 import logo from './logo.svg';
 import './AnimatedLogo.css';
 import { Image } from 'semantic-ui-react'
 
 
-const AnimatedLogo = () => (
+class AnimatedLogo extends Component
+{
 
-        <Image
-            size='mini'
-            src={logo}
-            className="App-logo" alt="logo"
-            style={{marginRight: '1.5em'}}
-        />
+    constructor(props)
+    {
+        super(props);
+        console.log("Display animated logo: " + this.props.display);
+    }
 
-);
+    render()
+    {
+        let size = 'mini';
+        let style = {marginRight: '1.5em'};
+
+        if (this.props.size !== 'mini')
+        {
+            size = 'medium';
+            style = {marginLeft: '-30px'};
+        }
+
+        return (
+
+            <Image
+                size={size}
+                src={logo}
+                className="App-logo" alt="logo"
+                style={style}
+            />
+
+        );
+
+    }
+}
+
 
 export default AnimatedLogo;

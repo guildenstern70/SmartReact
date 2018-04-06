@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import './LoginForm.css';
-import logo from '../components/logo.svg';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 import {Link} from "react-router-dom";
+import AnimatedLogo from "../components/AnimatedLogo";
 
 class LoginForm extends Component
 {
@@ -31,7 +31,7 @@ class LoginForm extends Component
                 >
                     <Grid.Column style={{maxWidth: 450}}>
                         <Header as='h2' color='blue' textAlign='center'>
-                            <Image src={logo} className="App-logo" style={{marginLeft: '-30px'}}/>
+                            <AnimatedLogo/>
                             {' '}Log-in to your account
                         </Header>
                         <Form size='large'>

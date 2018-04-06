@@ -2,13 +2,10 @@ import React, {Component} from 'react'
 import './LoginForm.css';
 import logo from '../components/logo.svg';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import {Link} from "react-router-dom";
 
 class LoginForm extends Component
 {
-    performLogin()
-    {
-        window.location = '/home';
-    }
 
     render()
     {
@@ -52,11 +49,11 @@ class LoginForm extends Component
                                     placeholder='Password'
                                     type='password'
                                 />
-                                <Button color='blue' fluid size='large' onClick={ this.performLogin }>Login</Button>
+                                <Button color='blue' fluid size='large' as={Link} to='/home'>Login</Button>
                             </Segment>
                         </Form>
                         <Message>
-                            New to us? <a href='/home'>Sign Up</a>
+                            New to us? <Link to='/home'>Sign Up</Link>
                         </Message>
                     </Grid.Column>
                 </Grid>

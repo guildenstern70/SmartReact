@@ -6,6 +6,35 @@ import AnimatedLogo from "../components/AnimatedLogo";
 
 class LoginForm extends Component
 {
+    constructor(props) {
+    super(props);
+    this.state = {
+        username: "",
+        password: ""
+    };
+
+    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+
+    onChangeUsername(event) {
+        console.log("Setting username to " + event.target.value);
+        this.setState({username: event.target.value});
+
+    }
+
+    onChangePassword(event) {
+        console.log("Setting password to " + event.target.value);
+        this.setState({password: event.target.value});
+    }
+
+    onSubmit(event) {
+
+        // Call Auth WS
+        alert("You are logged in > " + this.state.username);
+    }
 
     render()
     {
@@ -41,6 +70,7 @@ class LoginForm extends Component
                                     icon='user'
                                     iconPosition='left'
                                     placeholder='E-mail address'
+                                    value={this.state.username} onChange={this.onChangeUsername}
                                 />
                                 <Form.Input
                                     fluid
@@ -48,8 +78,11 @@ class LoginForm extends Component
                                     iconPosition='left'
                                     placeholder='Password'
                                     type='password'
+                                    value={this.state.password} onChange={this.onChangePassword}
                                 />
-                                <Button color='blue' fluid size='large' as={Link} to='/home'>Login</Button>
+                                <Button color='blue' fluid size='large'
+                                        onClick={this.onSubmit}
+                                >Login</Button>
                             </Segment>
                         </Form>
                         <Message>

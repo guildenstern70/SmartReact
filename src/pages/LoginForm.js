@@ -1,39 +1,41 @@
 import React, {Component} from 'react'
 import './LoginForm.css';
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
+import {Button, Form, Grid, Header, Message, Segment} from 'semantic-ui-react'
 import {Link} from "react-router-dom";
 import AnimatedLogo from "../components/AnimatedLogo";
 
 class LoginForm extends Component
 {
-    constructor(props) {
-    super(props);
-    this.state = {
-        username: "",
-        password: ""
-    };
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            username: "",
+            password: ""
+        };
 
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-
-    onChangeUsername(event) {
-        console.log("Setting username to " + event.target.value);
-        this.setState({username: event.target.value});
-
+        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
-    onChangePassword(event) {
+
+    onChangeUsername(event)
+    {
+        console.log("Setting username to " + event.target.value);
+        this.setState({username: event.target.value});
+    }
+
+    onChangePassword(event)
+    {
         console.log("Setting password to " + event.target.value);
         this.setState({password: event.target.value});
     }
 
-    onSubmit(event) {
-
-        // Call Auth WS
-        alert("You are logged in > " + this.state.username);
+    onSubmit(event)
+    {
+        console.log("You are logged in > " + this.state.username);
+        this.props.history.push('/home')
     }
 
     render()

@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Header, Button, Grid } from 'semantic-ui-react'
+import {Button} from 'semantic-ui-react'
 import MagicBox from "../components/MagicBox";
-import MenuLayout from "../components/MenuLayout";
+import TemplatePage from "../components/TemplatePage";
 
 class Home extends React.Component
 {
@@ -23,28 +23,33 @@ class Home extends React.Component
     {
         console.log('New state: ' + JSON.stringify(this.state));
         this.setState({
-          showMagicBox: !this.state.showMagicBox
+            showMagicBox: !this.state.showMagicBox
         });
+    }
+
+    description() {
+        return "This is a template for a simple marketing or informational website.\n" +
+            "It includes a large callout called a jumbotron and three\n" +
+            "supporting pieces of content. Use it as a starting\n" +
+            "point to create something more unique."
     }
 
     render()
     {
         return (
 
-            <MenuLayout>
+            <TemplatePage title={"Home Page"}
+                          description={this.description()}
+                          buttons={
+                              <div>
+                                  <Button onClick={this.handleClick} primary>Magic Box</Button>
+                                  <Button secondary>Stateful Box</Button>
+                              </div>
+                          }>
+                 <MagicBox display={this.state.showMagicBox} text="Magic Box"/>
+            </TemplatePage>
 
-                <Header as='h2' color='blue' textAlign='center'>Home Page</Header>
-
-                <Grid centered style={{marginTop: '100px'}}>
-                    <Button onClick={this.handleClick} primary>Magic Box</Button>
-                    <Button secondary>Stateful Box</Button>
-                </Grid>
-
-                <MagicBox display={this.state.showMagicBox} text="Magic Box"/>
-
-            </MenuLayout>
-
-        )
+        );
     }
 }
 

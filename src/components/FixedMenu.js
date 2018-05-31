@@ -1,25 +1,24 @@
 import React from 'react'
+import './FixedMenu.css';
 
 import { Container, Dropdown, Menu } from 'semantic-ui-react'
 import {Link} from "react-router-dom";
 import AnimatedLogo from "./AnimatedLogo";
 
-
 const FixedMenu = () => (
 
-    <div>
-        <Menu fixed='top' inverted>
+        <Menu inverted>
             <Container>
 
                 <Menu.Item as={Link} to='/home' header>
                     <AnimatedLogo size='mini' />
-                    SmartReact
+                    <div className="MenuTitle">SmartReact</div>
                 </Menu.Item>
 
                 <Menu.Item as={Link} to='/home'>Home</Menu.Item>
                 <Menu.Item as={Link} to='/anotherpage'>Other Page</Menu.Item>
 
-                <Dropdown item simple text='Your accout'>
+                <Dropdown item simple text='Your account'>
                     <Dropdown.Menu>
                         <Dropdown.Item as={Link} to='/'>Logout</Dropdown.Item>
                         <Dropdown.Item>List Item</Dropdown.Item>
@@ -39,7 +38,6 @@ const FixedMenu = () => (
 
             </Container>
         </Menu>
-    </div>
 
 );
 

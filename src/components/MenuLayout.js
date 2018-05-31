@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import FixedMenu from "../components/FixedMenu";
+import {Container, Header} from "semantic-ui-react";
 
 
 class MenuLayout extends Component
@@ -16,14 +17,12 @@ class MenuLayout extends Component
         document.title = "SmartReact";
         return (
 
-                <div>
-                    <div className="header">
+                <Container>
+                    <Header>
                         <FixedMenu/>
-                    </div>
-                    <div className="content">
+                    </Header>
                         { this.props.children }
-                    </div>
-                </div>
+                </Container>
 
         );
     }

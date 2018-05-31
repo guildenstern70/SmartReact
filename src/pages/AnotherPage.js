@@ -1,13 +1,17 @@
 import React from 'react'
-
-import { Header } from 'semantic-ui-react'
-import MenuLayout from "../components/MenuLayout";
+import TemplatePage from "../components/TemplatePage";
+import {Button} from "semantic-ui-react";
 
 const AnotherPage = () => (
 
-    <MenuLayout>
-        <Header as='h2' color='blue' textAlign='center' style={{marginTop: '100px'}}>Another Page</Header>
-    </MenuLayout>
+    <TemplatePage title={"Other Page"}
+                  description={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod " +
+                  "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, " +
+                  "quis nostrud exercitation ullamco"}
+                  buttons={
+                      <Button primary>Learn more &hellip;</Button>
+                  }>
+    </TemplatePage>
 
 
 );

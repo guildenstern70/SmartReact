@@ -1,3 +1,6 @@
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
+
 ### SmartReact
 
 A React example application with:

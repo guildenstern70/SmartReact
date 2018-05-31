@@ -8,7 +8,6 @@ class TemplatePage extends Component
 {
     render()
     {
-        document.title = "SmartReact | " + this.props.title;
         return (
 
             <MenuLayout>

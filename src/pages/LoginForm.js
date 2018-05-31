@@ -6,6 +6,8 @@ import AnimatedLogo from "../components/AnimatedLogo";
 
 class LoginForm extends Component
 {
+    TITLE = "Login";
+
     constructor(props)
     {
         super(props);
@@ -36,6 +38,10 @@ class LoginForm extends Component
     {
         console.log("You are logged in > " + this.state.username);
         this.props.history.push('/home')
+    }
+
+    componentDidMount() {
+        document.title = "SmartReact | " + this.TITLE;
     }
 
     render()

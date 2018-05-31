@@ -6,6 +6,7 @@ import TemplatePage from "../components/TemplatePage";
 
 class Home extends React.Component
 {
+    TITLE = "Home Page";
 
     constructor(props)
     {
@@ -32,6 +33,10 @@ class Home extends React.Component
             "It includes a large callout called a jumbotron and three\n" +
             "supporting pieces of content. Use it as a starting\n" +
             "point to create something more unique."
+    }
+
+    componentDidMount() {
+        document.title = "SmartReact | " + this.TITLE;
     }
 
     render()

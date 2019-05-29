@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2019, Alessio Saltarin
+ * Project SmartReact TS
+ * MIT License - see LICENSE
+ */
+
 import React, {Component} from 'react';
 import './MagicBox.css';
 

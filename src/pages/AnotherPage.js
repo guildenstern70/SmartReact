@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2019, Alessio Saltarin
+ * Project SmartReact TS
+ * MIT License - see LICENSE
+ */
+
 import React from 'react'
 import TemplatePage from "../components/TemplatePage";
 import {Button} from "semantic-ui-react";

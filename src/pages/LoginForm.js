@@ -100,7 +100,7 @@ class LoginForm extends Component
                             </Segment>
                         </Form>
                         <Message>
-                            New to us? <Link to='/home'>Sign Up</Link>
+                            Annoyed? <Link to='/home'>Skip</Link>
                         </Message>
                     </Grid.Column>
                 </Grid>

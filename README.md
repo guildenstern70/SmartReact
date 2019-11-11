@@ -15,5 +15,16 @@ A React example application with:
 ### Run
 
     yarn start
+
+### Build for production
+
+    yarn build
+    
+### Test production build
+
+    yarn global add serve
+    serve -s build
+    
+
     
 

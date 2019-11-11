@@ -8,6 +8,9 @@
 
 import * as React from 'react';
 import './StatefulBox.css';
+import Card from "semantic-ui-react/dist/commonjs/views/Card";
+import Image from "semantic-ui-react/dist/commonjs/elements/Image";
+import Icon from "semantic-ui-react/dist/commonjs/elements/Icon";
 
 type TimeOfDay = {
     description: string,
@@ -15,7 +18,7 @@ type TimeOfDay = {
 };
 
 type Props = {
-
+    display: boolean
 };
 
 type State = {
@@ -33,8 +36,15 @@ const NIGHT : TimeOfDay = { description: 'Night', color: 'night'};
 class StatefulBox extends React.Component<Props, State> {
 
     state = {
-        timeOfDay: MORNING
+        timeOfDay: MORNING,
+        currentHour: 10
     };
+
+    constructor(props)
+    {
+        super(props);
+        console.log("Display stateful box: " + this.props.display);
+    }
 
     updateState() {
 
@@ -55,9 +65,25 @@ class StatefulBox extends React.Component<Props, State> {
         }
 
         this.setState( {
-            timeOfDay: timeOfDay
+            timeOfDay,
+            currentHour
         });
 
+    }
+
+    getAssociatedImage() {
+        let image;
+        switch (this.state.timeOfDay) {
+            case MORNING:
+                image = "/img/morning.png";
+                break;
+            case NOON:
+                image = "/img/noon.png";
+                break;
+            default:
+                image = "/img/night.png"
+        }
+        return image;
     }
 
 
@@ -67,18 +93,42 @@ class StatefulBox extends React.Component<Props, State> {
 
     }
 
+    displayOrNot()
+    {
+        if (this.props.display)
+        {
+            return "displayed"
+        }
+        return "notdisplayed";
+    }
+
     componentWillUnmount() {
 
     }
 
     render() {
 
-        let style = 'statefulbox '+ this.state.timeOfDay.color;
+        let style = this.displayOrNot();
 
         return (
 
-            <div className={ style } >
-                It's { this.state.timeOfDay.description }
+            <div className={style}>
+                <Card>
+                    <Image src={this.getAssociatedImage()} wrapped ui={false}/>
+                    <Card.Content>
+                        <Card.Header>{this.state.timeOfDay.description}</Card.Header>
+                        <Card.Meta>
+                            <span className="date">It's {this.state.currentHour} hh.</span>
+                        </Card.Meta>
+                        <Card.Description>
+                            Try this in different hours to see it change.
+                        </Card.Description>
+                    </Card.Content>
+                    <Card.Content extra>
+                        <Icon name="user"/>
+                        22 Friends
+                    </Card.Content>
+                </Card>
             </div>
 
         );

@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2019, Alessio Saltarin
- * Project SmartReact TS
+ * Project SmartReact
  * MIT License - see LICENSE
  */
 
@@ -26,7 +26,6 @@ class MagicBox extends Component
             return "displayed"
         }
         return "notdisplayed";
-
     }
 
     render()

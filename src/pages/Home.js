@@ -9,6 +9,10 @@ import React from 'react'
 import {Button} from 'semantic-ui-react'
 import MagicBox from "../components/MagicBox";
 import TemplatePage from "../components/TemplatePage";
+import StatefulBox from "../components/StatefulBox";
+import Segment from "semantic-ui-react/dist/commonjs/elements/Segment";
+import Grid from "semantic-ui-react/dist/commonjs/collections/Grid";
+import Divider from "semantic-ui-react/dist/commonjs/elements/Divider";
 
 class Home extends React.Component
 {
@@ -19,19 +23,29 @@ class Home extends React.Component
         super(props);
         this.state =
         {
-            showMagicBox: false
+            showMagicBox: false,
+            showStatefulBox: false
         };
 
-        // Remember to bind event!
-        this.handleClick = this.handleClick.bind(this);
+        // Remember to bind events!
+        this.magicBoxClick = this.magicBoxClick.bind(this);
+        this.statefulBoxClick = this.statefulBoxClick.bind(this);
     }
 
-    handleClick()
+    magicBoxClick()
     {
-        console.log('New state: ' + JSON.stringify(this.state));
+        console.log('New state for MagicBox: ' + JSON.stringify(this.state));
         this.setState({
             showMagicBox: !this.state.showMagicBox
         });
+    }
+
+    statefulBoxClick()
+    {
+        console.log('New state for StatefulBox: ' + JSON.stringify(this.state.showStatefulBox));
+        this.setState({
+            showStatefulBox: !this.state.showStatefulBox
+            });
     }
 
     description() {
@@ -53,11 +67,23 @@ class Home extends React.Component
                           description={this.description()}
                           buttons={
                               <div>
-                                  <Button onClick={this.handleClick} primary>Magic Box</Button>
-                                  <Button secondary>Stateful Box</Button>
+                                  <Button onClick={this.magicBoxClick} primary>Magic Box</Button>
+                                  <Button onClick={this.statefulBoxClick} secondary>Stateful Box</Button>
                               </div>
                           }>
-                 <MagicBox display={this.state.showMagicBox} text="Magic Box"/>
+                <Segment>
+                    <Grid columns={2} relaxed='very'>
+                        <Grid.Column>
+                            <MagicBox display={this.state.showMagicBox} text="Magic Box"/>
+                        </Grid.Column>
+                        <Grid.Column>
+                            <StatefulBox display={this.state.showStatefulBox} />
+                        </Grid.Column>
+                    </Grid>
+                    <Divider vertical>And</Divider>
+                </Segment>
+
+
             </TemplatePage>
 
         );

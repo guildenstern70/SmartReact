@@ -4,8 +4,9 @@
  * MIT License - see LICENSE
  */
 
-.displayed {
+.rightdisplayed {
     display: block;
+    float: right;
 }
 
 .notdisplayed {

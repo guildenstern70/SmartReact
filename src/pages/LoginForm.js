@@ -9,6 +9,7 @@ import './LoginForm.css';
 import {Button, Form, Grid, Header, Message, Segment} from 'semantic-ui-react'
 import {Link} from "react-router-dom";
 import AnimatedLogo from "../components/AnimatedLogo";
+import Image from "semantic-ui-react/dist/commonjs/elements/Image";
 
 class LoginForm extends Component
 {
@@ -73,7 +74,8 @@ class LoginForm extends Component
                     verticalAlign='middle'
                 >
                     <Grid.Column style={{maxWidth: 450}}>
-                        <Header as='h2' color='blue' textAlign='center'>
+                        <Image centered size='small' src='/img/logo.png'/>
+                        <Header as='h3' color='blue' textAlign='center'>
                             <AnimatedLogo/>
                             {' '}Log-in to your account
                         </Header>

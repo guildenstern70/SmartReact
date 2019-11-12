@@ -97,7 +97,7 @@ class StatefulBox extends React.Component<Props, State> {
     {
         if (this.props.display)
         {
-            return "displayed"
+            return "rightdisplayed"
         }
         return "notdisplayed";
     }

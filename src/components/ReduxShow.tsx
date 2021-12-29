@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { Card } from 'semantic-ui-react';
+import { Card, ListGroup } from 'react-bootstrap';
 import { StoreState } from '../redux/reducers/StoreState';
 
 const mapState = (state: StoreState): StoreState => ({
@@ -20,18 +20,16 @@ type Props = PropsFromRedux;
 class ReduxShow extends React.Component<Props> {
     render(): React.ReactNode {
         return (
-            <Card>
-                <Card.Content>
-                    <Card.Header>Store Content</Card.Header>
-                    <Card.Description>Current messages in store:</Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                    <ul>
+            <Card style={{ width: '18rem' }}>
+                <Card.Body>
+                    <Card.Title>Store Content</Card.Title>
+                    <Card.Text>Current messages in store:</Card.Text>
+                    <ListGroup variant="flush">
                         {this.props.messages.map((message: string, i: number) => (
-                            <li key={i.toString()}>{message}</li>
+                            <ListGroup.Item key={i.toString()}>{message}</ListGroup.Item>
                         ))}
-                    </ul>
-                </Card.Content>
+                    </ListGroup>
+                </Card.Body>
             </Card>
         );
     }

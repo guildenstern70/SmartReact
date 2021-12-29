@@ -6,7 +6,7 @@
 
 import React from 'react';
 
-import { Grid, Message } from 'semantic-ui-react';
+import { Container, Row, Col } from 'react-bootstrap';
 import MenuLayout from './MenuLayout';
 
 interface TemplatePageProps {
@@ -18,19 +18,15 @@ interface TemplatePageProps {
 
 const TemplatePage: React.FC<TemplatePageProps> = (props: TemplatePageProps) => (
     <MenuLayout>
-        <Grid>
-            <Grid.Row>
-                <Grid.Column>
-                    <Message>
-                        <Message.Content>
-                            <Message.Header>{props.title}</Message.Header>
-                            <p>{props.description}</p>
-                            {props.buttons}
-                        </Message.Content>
-                    </Message>
-                </Grid.Column>
-            </Grid.Row>
-        </Grid>
+        <Container className={'mt-5 mb-3'}>
+            <Row>
+                <Col>
+                    <h2>{props.title}</h2>
+                    <p>{props.description}</p>
+                    <div>{props.buttons}</div>
+                </Col>
+            </Row>
+        </Container>
         {props.children}
     </MenuLayout>
 );

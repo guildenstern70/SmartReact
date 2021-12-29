@@ -6,7 +6,7 @@
 
 import React, { ChangeEvent } from 'react';
 import { connect, ConnectedProps } from 'react-redux';
-import { Button, Card, Form } from 'semantic-ui-react';
+import { Button, Card, Form } from 'react-bootstrap';
 import { StoreState } from '../redux/reducers/StoreState';
 import { AllTypes } from '../redux/Types';
 
@@ -53,27 +53,28 @@ class ReduxController extends React.Component<Props, OwnState> {
 
     render(): React.ReactNode {
         return (
-            <Card>
-                <Card.Content>
-                    <Card.Header>Add to Store</Card.Header>
-                    <Card.Meta>Store Container</Card.Meta>
-                    <Card.Description>Add a string to the application Store.</Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                    <Form>
-                        <Form.Field>
-                            <label>Message</label>
-                            <input
-                                placeholder="Type here message to add"
-                                onChange={this.onChangeRequest}
-                                value={this.state.typedMessage}
-                            />
-                        </Form.Field>
-                        <Button primary onClick={(): void => this.addMessageToStore(this.state.typedMessage)}>
-                            Add
-                        </Button>
-                    </Form>
-                </Card.Content>
+            <Card style={{ width: '18rem' }}>
+                <Card.Body>
+                    <Card.Title>Add to Store</Card.Title>
+                    <Card.Text>Add a string to the application Store.</Card.Text>
+                    <Card.Text>
+                        <Form>
+                            <Form.Group className="mb-3">
+                                <Form.Label>Message</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    placeholder="Enter a message"
+                                    onChange={this.onChangeRequest}
+                                    value={this.state.typedMessage}
+                                />
+                                <Form.Text className="text-muted">Be imaginative!</Form.Text>
+                            </Form.Group>
+                        </Form>
+                    </Card.Text>
+                    <Button variant="primary" onClick={(): void => this.addMessageToStore(this.state.typedMessage)}>
+                        Add
+                    </Button>
+                </Card.Body>
             </Card>
         );
     }

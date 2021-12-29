@@ -4,5 +4,5 @@ A template/demo project for React featuring:
 
 * React in Typescript
 * Redux React
-* Semantic UI React
+* Bootstrap React 5
 

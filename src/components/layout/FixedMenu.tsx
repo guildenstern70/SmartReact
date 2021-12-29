@@ -7,46 +7,35 @@
 import React from 'react';
 import './FixedMenu.css';
 
-import { Container, Dropdown, Menu } from 'semantic-ui-react';
+import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import AnimatedLogo from '../AnimatedLogo';
 
 const FixedMenu: React.FC = () => (
-    <Menu inverted>
+    <Navbar bg="light" expand="lg">
         <Container>
-            <Menu.Item as={Link} to="/home" header>
-                <AnimatedLogo size="mini" />
-                <div className="MenuTitle">SmartReact</div>
-            </Menu.Item>
-
-            <Menu.Item as={Link} to="/home">
-                Home
-            </Menu.Item>
-            <Menu.Item as={Link} to="/anotherpage">
-                Redux Example
-            </Menu.Item>
-
-            <Dropdown item simple text="Your account">
-                <Dropdown.Menu>
-                    <Dropdown.Item as={Link} to="/">
-                        Logout
-                    </Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Header>Header Item</Dropdown.Header>
-                    <Dropdown.Item>
-                        <i className="dropdown icon" />
-                        <span className="text">Submenu</span>
-                        <Dropdown.Menu>
-                            <Dropdown.Item>List Item</Dropdown.Item>
-                            <Dropdown.Item>List Item</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>
+            <Navbar.Brand href="#home">
+                <AnimatedLogo width={'70px'} />
+                <span className={'MenuTitle'}>SmartReact TS</span>
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
+                    <Nav.Link as={Link} to="/home">
+                        Home
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/anotherpage">
+                        Another Page
+                    </Nav.Link>
+                    <NavDropdown title="Your Account" id="basic-nav-dropdown">
+                        <NavDropdown.Item as={Link} to="/">
+                            Logout
+                        </NavDropdown.Item>
+                    </NavDropdown>
+                </Nav>
+            </Navbar.Collapse>
         </Container>
-    </Menu>
+    </Navbar>
 );
 
 export default FixedMenu;

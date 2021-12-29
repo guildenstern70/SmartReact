@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Button } from 'react-bootstrap';
 import Displayable from './Displayable';
 
 interface MagicBoxProps {
@@ -25,19 +25,17 @@ export default class MagicBox extends React.Component<MagicBoxProps> {
     render(): React.ReactNode {
         return (
             <Displayable display={this.props.display}>
-                <Card>
-                    <Image src="/img/matthew.png" wrapped ui={false} />
-                    <Card.Content>
-                        <Card.Header>{this.props.text}</Card.Header>
-                        <Card.Meta>
-                            <span className="date">Joined in 2015</span>
-                        </Card.Meta>
-                        <Card.Description>The box is in a card.</Card.Description>
-                    </Card.Content>
-                    <Card.Content extra>
-                        <Icon name="user" />
-                        22 Friends
-                    </Card.Content>
+                <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src="/img/matthew.png" />
+                    <Card.Body className={'pb-3'}>
+                        <Card.Title>{this.props.text}</Card.Title>
+                        <Card.Text>
+                            The box is in a card.
+                            <br />
+                            This is a stateless box, meaning that it&apos;s always the same.
+                        </Card.Text>
+                        <Button variant="primary">Go somewhere</Button>
+                    </Card.Body>
                 </Card>
             </Displayable>
         );

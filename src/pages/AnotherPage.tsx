@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Button, Grid } from 'semantic-ui-react';
+import { Container, Row, Col } from 'react-bootstrap';
 import TemplatePage from '../components/layout/TemplatePage';
 import ReduxController from '../components/ReduxController';
 import ReduxShow from '../components/ReduxShow';
@@ -23,24 +23,18 @@ export default class AnotherPage extends React.Component<AnotherPageProps> {
 
     render(): React.ReactNode {
         return (
-            <TemplatePage
-                title={'Redux Example'}
-                description={AnotherPage.description()}
-                buttons={
-                    <div>
-                        <Button secondary>More info...</Button>
-                    </div>
-                }
-            >
-                <Grid columns={3}>
-                    <Grid.Column width={6}>
-                        <ReduxController />
-                    </Grid.Column>
-                    <Grid.Column width={6}>
-                        <ReduxShow />
-                    </Grid.Column>
-                    <Grid.Column width={4}>&nbsp;</Grid.Column>
-                </Grid>
+            <TemplatePage title={'Redux Example'} description={AnotherPage.description()} buttons={<div></div>}>
+                <Container>
+                    <Row>
+                        <Col>
+                            <ReduxController />
+                        </Col>
+                        <Col>
+                            <ReduxShow />
+                        </Col>
+                        <Col>&nbsp;</Col>
+                    </Row>
+                </Container>
             </TemplatePage>
         );
     }

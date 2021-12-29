@@ -6,7 +6,7 @@
 
 import React from 'react';
 import FixedMenu from './FixedMenu';
-import { Container, Header } from 'semantic-ui-react';
+import { Container } from 'react-bootstrap';
 
 interface MenuLayoutProps {
     children: React.ReactNode;
@@ -16,9 +16,7 @@ const MenuLayout: React.FC<MenuLayoutProps> = (props: MenuLayoutProps) => {
     document.title = 'SmartReact TS';
     return (
         <Container>
-            <Header>
-                <FixedMenu />
-            </Header>
+            <FixedMenu />
             {props.children}
         </Container>
     );

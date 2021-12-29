@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Button, Divider, Grid, Segment } from 'semantic-ui-react';
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import TemplatePage from '../components/layout/TemplatePage';
 import MagicBox from '../components/MagicBox';
 import StatefulBox from '../components/StatefulBox';
@@ -58,27 +58,29 @@ export default class Home extends React.Component<HomeProps, HomeState> {
                 title={'Home Page'}
                 description={Home.description()}
                 buttons={
-                    <div>
-                        <Button onClick={this.handleMagicClick} primary>
+                    <>
+                        <Button onClick={this.handleMagicClick} variant={'primary'}>
                             Magic Box
                         </Button>
-                        <Button onClick={this.handleStatefulClick} secondary>
+                        &nbsp;
+                        <Button onClick={this.handleStatefulClick} variant={'secondary'}>
                             Stateful Box
                         </Button>
-                    </div>
+                    </>
                 }
             >
-                <Segment>
-                    <Grid columns={2} relaxed="very">
-                        <Grid.Column>
+                <Container>
+                    <Row>
+                        <Col>
                             <MagicBox display={this.state.showMagicBox} text="Magic Box" />
-                        </Grid.Column>
-                        <Grid.Column>
+                        </Col>
+                        <Col>
                             <StatefulBox display={this.state.showStatefulBox} />
-                        </Grid.Column>
-                    </Grid>
-                    <Divider vertical>*</Divider>
-                </Segment>
+                        </Col>
+                        <Col>&nbsp;</Col>
+                        <Col>&nbsp;</Col>
+                    </Row>
+                </Container>
             </TemplatePage>
         );
     }
@@ -86,8 +88,8 @@ export default class Home extends React.Component<HomeProps, HomeState> {
     static description(): string {
         return (
             'This is an example of modern React-Redux application.\n' +
-            'It features integration with Semantic UI responsive library,\n' +
-            "and it's written entiorely in Typescript."
+            'It features integration with Bootstrap 5 responsive library,\n' +
+            "and it's written entirely in Typescript."
         );
     }
 }

@@ -7,7 +7,7 @@
 import React from 'react';
 import './StatefulBox.css';
 import { TimeOfDay } from './model/TimeOfDay';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Button } from 'react-bootstrap';
 import Displayable from './Displayable';
 
 interface StatefulProps {
@@ -77,19 +77,16 @@ export default class StatefulBox extends React.Component<StatefulProps, Stateful
     render(): React.ReactNode {
         return (
             <Displayable display={this.props.display} floatRight={true}>
-                <Card>
-                    <Image src={this.getAssociatedImage()} wrapped ui={false} />
-                    <Card.Content>
-                        <Card.Header>{this.state.timeOfDay.description}</Card.Header>
-                        <Card.Meta>
-                            <span className="date">It&apos;s {this.state.currentHour} hh.</span>
-                        </Card.Meta>
-                        <Card.Description>Try this in different hours to see it change.</Card.Description>
-                    </Card.Content>
-                    <Card.Content extra>
-                        <Icon name="user" />
-                        22 Friends
-                    </Card.Content>
+                <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={this.getAssociatedImage()} />
+                    <Card.Body>
+                        <Card.Title>{this.state.timeOfDay.description}</Card.Title>
+                        <Card.Text>
+                            <span className="date">It&apos;s {this.state.currentHour}:00 time.</span>
+                            <div>Try this in different hours to see it change.</div>
+                        </Card.Text>
+                        <Button variant="primary">Go somewhere</Button>
+                    </Card.Body>
                 </Card>
             </Displayable>
         );

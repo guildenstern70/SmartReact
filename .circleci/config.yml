@@ -5,9 +5,11 @@ orbs:
 
 jobs:
   test:
-    executor:
-      name: node/default
-      tag: '16'
+    docker:
+      - image: cimg/node:16.13.1
+        auth:
+          username: guildenstern79
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - node/install-packages:
@@ -16,9 +18,11 @@ jobs:
           command: yarn run test
           name: Run tests
   build:
-    executor:
-      name: node/default
-      tag: '16'
+    docker:
+      - image: cimg/node:16.13.1
+        auth:
+          username: guildenstern79
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - node/install-packages:

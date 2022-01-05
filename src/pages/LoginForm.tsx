@@ -6,7 +6,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Alert, Row, Col, Container, Button } from 'react-bootstrap';
+import { Alert, Row, Col, Button } from 'react-bootstrap';
+import TemplatePage from '../components/layout/TemplatePage';
 
 interface LoginState {
     username: string;
@@ -51,14 +52,12 @@ export default class LoginForm extends React.Component<LoginProps, LoginState> {
 
     render(): React.ReactNode {
         return (
-            <Container>
+            <TemplatePage title={'Login'} description={''} buttons={<div></div>} showMenu={false}>
                 <Row>
                     <Col>&nbsp;</Col>
                     <Col>
                         <div className="login-form bg-light mt-4 p-4">
                             <form action="" method="" className="row g-3">
-                                <h4>Smart React TS</h4>
-                                <p>Please login</p>
                                 <div className="col-12">
                                     <label>Username</label>
                                     <input
@@ -87,17 +86,12 @@ export default class LoginForm extends React.Component<LoginProps, LoginState> {
                                     </div>
                                 </div>
                                 <div className="col-12">
-                                    <Button variant={'primary'} onClick={this.onSubmit}>
+                                    <Button className="float-end" variant={'primary'} onClick={this.onSubmit}>
                                         Login
                                     </Button>
                                 </div>
                             </form>
                             <hr className="mt-4" />
-                            <div className="col-12">
-                                <p className="text-center mb-0">
-                                    Have not account yet? <a href="#">Signup</a>
-                                </p>
-                            </div>
                             <Alert variant={'secondary'}>
                                 <Link to="/home">You may safely skip this</Link>
                             </Alert>
@@ -105,7 +99,7 @@ export default class LoginForm extends React.Component<LoginProps, LoginState> {
                     </Col>
                     <Col>&nbsp;</Col>
                 </Row>
-            </Container>
+            </TemplatePage>
         );
     }
 }

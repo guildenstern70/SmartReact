@@ -11,13 +11,13 @@ import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import AnimatedLogo from '../AnimatedLogo';
 
-const FixedMenu: React.FC = () => (
-    <Navbar bg="light" expand="lg">
-        <Container>
-            <Navbar.Brand href="#home">
-                <AnimatedLogo width={'70px'} />
-                <span className={'MenuTitle'}>SmartReact TS</span>
-            </Navbar.Brand>
+interface FixedMenuProps {
+    showMenu: boolean;
+}
+
+const FixedMenu: React.FC<FixedMenuProps> = (props: FixedMenuProps) => {
+    let menu = (
+        <>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
@@ -34,8 +34,24 @@ const FixedMenu: React.FC = () => (
                     </NavDropdown>
                 </Nav>
             </Navbar.Collapse>
-        </Container>
-    </Navbar>
-);
+        </>
+    );
+
+    if (!props.showMenu) {
+        menu = <span />;
+    }
+
+    return (
+        <Navbar bg="dark" variant="dark" expand="lg">
+            <Container>
+                <Navbar.Brand href="#home">
+                    <AnimatedLogo width={'70px'} />
+                    <span className={'MenuTitle'}>SmartReact TS</span>
+                </Navbar.Brand>
+                {menu}
+            </Container>
+        </Navbar>
+    );
+};
 
 export default FixedMenu;

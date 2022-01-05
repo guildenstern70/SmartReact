@@ -9,16 +9,17 @@ import FixedMenu from './FixedMenu';
 import { Container } from 'react-bootstrap';
 
 interface MenuLayoutProps {
+    showMenu: boolean;
     children: React.ReactNode;
 }
 
 const MenuLayout: React.FC<MenuLayoutProps> = (props: MenuLayoutProps) => {
     document.title = 'SmartReact TS';
     return (
-        <Container>
-            <FixedMenu />
-            {props.children}
-        </Container>
+        <>
+            <FixedMenu showMenu={props.showMenu} />
+            <Container>{props.children}</Container>
+        </>
     );
 };
 

@@ -23,4 +23,3 @@ workflows:
           yarn-run: build
           requires:
             - node/test
-

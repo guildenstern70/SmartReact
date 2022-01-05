@@ -5,7 +5,7 @@
 
 A template/demo project for React featuring:
 
-* Entirely written in Typescript
-* Redux React
-* Bootstrap React 5
+  * Entirely written in Typescript
+  * Redux React
+  * Bootstrap React 5
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Alessio Saltarin 2019-2021
+ * Copyright (c) Alessio Saltarin 2019-2023
  * Project SmartReact TS
  * MIT License - see LICENSE
  */
@@ -7,12 +7,16 @@
 import React from 'react';
 import './Displayable.css';
 
-interface DisplayableProps {
+type DisplayableProps = {
     display: boolean;
     floatRight: boolean;
+    children: JSX.Element;
 }
 
-export default class Displayable extends React.Component<DisplayableProps> {
+type DisplayableState = Record<string, never>;
+
+export default class Displayable extends React.Component<DisplayableProps, DisplayableState> {
+
     static defaultProps = {
         floatRight: false,
     };

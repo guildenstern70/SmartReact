@@ -1,35 +1,30 @@
 /*
- * Copyright (c) Alessio Saltarin 2019-2021
+ * Copyright (c) Alessio Saltarin 2019-2023
  * Project SmartReact TS
  * MIT License - see LICENSE
  */
 
 import React from 'react';
-import './StatefulBox.css';
-import { TimeOfDay } from './model/TimeOfDay';
-import { Card, Button } from 'react-bootstrap';
-import Displayable from './Displayable';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Displayable from "./Displayable";
 
-interface StatefulProps {
+type StatefulProps = {
     display: boolean;
-}
+    text: string;
+};
 
-interface StatefulState {
-    timeOfDay: TimeOfDay;
-    currentHour: number;
-}
-
-const MORNING: TimeOfDay = { description: 'Morning', color: 'pink' };
-const NOON: TimeOfDay = { description: 'Noon', color: 'orange' };
-const NIGHT: TimeOfDay = { description: 'Night', color: 'night' };
+type StatefulState = {
+    datetime: Date;
+};
 
 export default class StatefulBox extends React.Component<StatefulProps, StatefulState> {
     state = {
-        timeOfDay: MORNING,
-        currentHour: 10,
+        datetime: new Date()
     };
 
     private componentStyle: string;
+    private interval: NodeJS.Timer | undefined;
 
     constructor(props: StatefulProps) {
         super(props);
@@ -38,57 +33,33 @@ export default class StatefulBox extends React.Component<StatefulProps, Stateful
     }
 
     updateState(): void {
-        const currentHour = new Date().getHours();
-        let timeOfDay;
-
-        if (currentHour > 5 && currentHour <= 12) {
-            timeOfDay = MORNING;
-        } else if (currentHour > 12 && currentHour <= 21) {
-            timeOfDay = NOON;
-        } else {
-            timeOfDay = NIGHT;
-        }
-
         this.setState({
-            timeOfDay,
-            currentHour,
+            datetime: new Date()
         });
     }
 
-    componentDidMount(): void {
-        this.updateState();
+    componentDidMount() {
+        this.interval = setInterval(() => this.updateState(), 1000);
     }
 
-    getAssociatedImage(): string {
-        let image;
-        switch (this.state.timeOfDay) {
-            case MORNING:
-                image = '/img/morning.png';
-                break;
-            case NOON:
-                image = '/img/noon.png';
-                break;
-            default:
-                image = '/img/night.png';
-        }
-        return image;
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     render(): React.ReactNode {
         return (
-            <Displayable display={this.props.display} floatRight={true}>
+            <Displayable display={this.props.display}>
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={this.getAssociatedImage()} />
+                    <Card.Img variant="top" src="/img/noon.png" />
                     <Card.Body>
-                        <Card.Title>{this.state.timeOfDay.description}</Card.Title>
+                        <Card.Title>{this.props.text}</Card.Title>
                         <Card.Text>
-                            <span className="date">It&apos;s {this.state.currentHour}:00 time.</span>
-                            <div>Try this in different hours to see it change.</div>
+                            <span className="date">{this.state.datetime.toLocaleString()}</span>
                         </Card.Text>
                         <Button variant="primary">Go somewhere</Button>
                     </Card.Body>
                 </Card>
             </Displayable>
-        );
+            );
     }
 }

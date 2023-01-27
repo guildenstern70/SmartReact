@@ -1,15 +1,16 @@
 /*
- * Copyright (c) Alessio Saltarin 2019-2021
+ * Copyright (c) Alessio Saltarin 2019-2023
  * Project SmartReact TS
  * MIT License - see LICENSE
  */
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { BrowserRouter } from "react-router-dom";
+import { render, screen } from '@testing-library/react';
 import App from './App';
 
-it('renders without crashing', (): void => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />, div);
-    ReactDOM.unmountComponentAtNode(div);
+test('renders correctly', () => {
+    render(<BrowserRouter><App /></BrowserRouter>);
+  const title = screen.getByText('Smart React');
+  expect(title).toBeInTheDocument();
 });

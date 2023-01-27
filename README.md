@@ -7,6 +7,6 @@
 A template/demo project for React featuring:
 
   * Entirely written in Typescript
-  * Redux React
+  * React v.18.2
   * Bootstrap React 5
 

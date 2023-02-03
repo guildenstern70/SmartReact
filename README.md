@@ -6,7 +6,8 @@
 
 A template/demo project for React featuring:
 
-  * Entirely written in Typescript
-  * React v.18.2
-  * Bootstrap React 5
+  * [React](https://reactjs.org/) v.18.2
+  * Entirely written in [Typescript](https://www.typescriptlang.org/)
+  * [React Bootstrap](https://react-bootstrap.github.io/) v2.7
+  * Powered by [Vite](https://vitejs.dev/) 
 

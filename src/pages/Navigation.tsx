@@ -5,12 +5,16 @@
  */
 
 import React  from 'react';
-import {Outlet} from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 function Navigation() {
+    const location = useLocation();
+    const isHomeActive = location.pathname === '/';
+    const isOtherActive = location.pathname === '/other';
+    const isLoginActiove = location.pathname === '/login';
     return (
         <>
             <Navbar bg="light" expand="lg">
@@ -19,9 +23,9 @@ function Navigation() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/">Home</Nav.Link>
-                            <Nav.Link href="/other">Other</Nav.Link>
-                            <Nav.Link href="/login">Login</Nav.Link>
+                            <Nav.Link active={isHomeActive} href="/">Home</Nav.Link>
+                            <Nav.Link active={isOtherActive} href="/other">Other</Nav.Link>
+                            <Nav.Link active={isLoginActiove} href="/login">Login</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

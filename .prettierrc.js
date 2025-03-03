@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Alessio Saltarin 2019-2021
+ * Copyright (c) Alessio Saltarin 2019-2025
  * Project SmartReact TS
  * MIT License - see LICENSE
  */

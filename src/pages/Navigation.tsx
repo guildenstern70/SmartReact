@@ -1,5 +1,5 @@
 /*
- * Copyright (c) Alessio Saltarin 2019-2023
+ * Copyright (c) Alessio Saltarin 2019-2025
  * Project SmartReact TS
  * MIT License - see LICENSE
  */
@@ -14,7 +14,6 @@ function Navigation() {
     const location = useLocation();
     const isHomeActive = location.pathname === '/';
     const isOtherActive = location.pathname === '/other';
-    const isLoginActiove = location.pathname === '/login';
     return (
         <>
             <Navbar bg="light" expand="lg">
@@ -25,7 +24,6 @@ function Navigation() {
                         <Nav className="me-auto">
                             <Nav.Link active={isHomeActive} href="/">Home</Nav.Link>
                             <Nav.Link active={isOtherActive} href="/other">Other</Nav.Link>
-                            <Nav.Link active={isLoginActiove} href="/login">Login</Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

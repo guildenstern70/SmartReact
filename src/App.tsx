@@ -10,7 +10,7 @@ import './App.css';
 
 import Index from './pages/Index';
 import Other from './pages/Other';
-import Navigation from "./pages/Navigation";
+import Navigation from "./components/Navigation";
 
 function App() {
   return (

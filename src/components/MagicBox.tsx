@@ -4,7 +4,7 @@
  * MIT License - see LICENSE
  */
 
-import React from 'react';
+import React, { JSX } from "react";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Displayable from "./Displayable";

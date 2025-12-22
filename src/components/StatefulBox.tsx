@@ -24,6 +24,7 @@ export default class StatefulBox extends React.Component<StatefulProps, Stateful
     };
 
     private componentStyle: string;
+    // @ts-ignore
     private interval: NodeJS.Timer | undefined;
 
     constructor(props: StatefulProps) {
